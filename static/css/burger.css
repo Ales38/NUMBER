@@ -1,0 +1,27 @@
+.burger__menu {
+    display: none;
+}
+
+.burger-menu__section {
+    width: 0;
+    position: absolute;
+    top: -30px;
+    right: -2px;
+    z-index: 9;
+    height: 100%;
+    transition: width 0.5s ease-in-out;
+}
+
+.burger-menu__container {
+    display: none;
+    transition: display 1.1s ease-in-out 1s;
+    padding: 48px 40px 38px;
+    height: 100vh;
+    position: relative;
+}
+
+.close-burger__button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}

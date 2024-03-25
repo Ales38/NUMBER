@@ -1,0 +1,228 @@
+.form {
+    padding: 40px;
+    width: 60%;
+}
+
+.prod__items {
+    border-bottom: 0.5px solid #666666;
+    border-top: 0.5px solid #666666;
+}
+
+.form__input {
+    border-bottom: 1px solid var(--text-color-grey);
+    border-top: none;
+    border-right: none;
+    border-left: none;
+}
+
+.form__input::-webkit-input-placeholder {
+    color: #666666;
+}
+
+.form__input::-moz-placeholder {
+    color: #666666;
+}
+
+.form__input:-ms-input-placeholder {
+    color: #666666;
+}
+
+.form__input::-ms-input-placeholder {
+    color: #666666;
+}
+
+.form__input::placeholder {
+    color: #666666;
+}
+
+.iti {
+    width: 25%;
+    color: var(--text-color-grey);
+}
+
+.iti__selected-flag {
+    padding: 0 6px 15px 8px !important;
+}
+
+.form__input:active,
+.form__input:focus-visible,
+.form__input:focus-within,
+.form__input:focus {
+    outline: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    background-color: var(--bg-color) !important;
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: var(--text-color-grey);
+}
+
+.total-info__items {
+    align-items: end;
+}
+
+.form__policy {
+    text-align: center;
+    margin: 20px 0 60px;
+}
+
+.order-number {
+    height: 60px;
+    padding: 20px 62px;
+    margin: 40px 0 20px;
+}
+
+
+.delivery__label {
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+}
+
+.delivery__label:before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    background: url('http://127.0.0.1:8000/static/img/radio_non_checked.png') 0 0 no-repeat;
+}
+
+.delivery-radio__item input[type=radio]:checked + .delivery__label:before {
+    background: url('http://127.0.0.1:8000/static/img/radio_checked.png') 0 0 no-repeat;
+}
+
+.delivery-radio__item input[type=radio]:not:checked + .delivery__label:before {
+    background: url('http://127.0.0.1:8000/static/img/radio_non_checked.png') 0 0 no-repeat;
+}
+
+.is_valid {
+    padding: 10px;
+    color: red;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+.quantity-arrow-minus,
+.quantity-arrow-plus {
+    padding: 2% 1%;
+    width: 18px;
+    height: 18px;
+    font-size: 16px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    outline: none;
+    border: 0.5px solid var(--text-color-grey);
+}
+
+.quantity-num__input {
+    font-size: 20px;
+    padding: 5px 10px;
+    outline: none;
+    border: none;
+    width: 30px;
+}
+
+.prod__img {
+    border-radius: 7px;
+    width: 70px;
+    height: 70px;
+}
+
+
+.quantity-block,
+.prod__price {
+    flex-basis: 10%;
+}
+
+.prod__info {
+    flex-basis: 30%;
+}
+
+.delete__btn,
+.prod__img {
+    flex-basis: fit-content;
+}
+
+div[data-count-down] {
+    --deg: -1;
+    --col: hsla(0, 100%, 50%, 1);
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    text-align: center;
+    background-image: radial-gradient(#fff 15px, #f000 31px), conic-gradient(var(--col) calc(var(--deg) * 2deg - 2deg), transparent calc(var(--deg) * 2deg + 2deg)), radial-gradient(#fff3 40px, #4441 50px);
+}
+
+.input__errors {
+    background: #f95d51;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--bg-color);
+}
+
+.success__item {
+    text-align: center;
+}
+
+.success__heading {
+    border-bottom: 1px solid #666666;
+}
+
+.delivery-points__container,
+.city__container {
+    position: relative;
+}
+.clean__delivery,
+.delivery__search,
+.clean__city,
+.city__search {
+    position: absolute;
+    top: 35px;
+    right: 10px;
+}
+
+.delivery__points {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    z-index: 10;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.30);
+    min-height: fit-content;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.delivery__points  .label {
+    height: fit-content;
+}
+
+.change__point {
+    border-bottom: 1px dashed #000;
+    font-weight: 400;
+    width: fit-content;
+}
+
+.success__item {
+    padding: 40px;
+}
+
+.modal-form {
+    padding: 400px 20px !important;
+}

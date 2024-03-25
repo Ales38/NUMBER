@@ -1,0 +1,166 @@
+{% load static %}
+<div class="element-info__items d-flex flex_column">
+    <div class="element-info__item font_m font_bold mb_30">{{ subcategory.subcategory }}</div>
+    {% if subcategory.price %}
+        {% if subcategory.subcategory == 'Автомобильный номер | тип 1' or subcategory.subcategory == 'Автомобильный номер | тип 1 (без флага)' or subcategory.subcategory == 'Автомобильный номер | тип 1Б, 5, 10, 20' %}
+            <div class="element-info__item font_xs mb_20 price"
+                 data-price="{{ subcategory.id }}"
+                 data-value="{{ subcategory.price }}">{{ subcategory.price }} &#8381;
+            </div>
+        {% elif subcategory.subcategory == 'Знаки ДОПОГ' %}
+            <div class="element-info__item font_xs mb_20 price">{{ subcategory.price }} &#8381;/ <span
+                    class="font_thin text_grey"></span> 1 шт
+            </div>
+        {% else %}
+            <div class="element-info__item font_xs mb_20 price">{{ subcategory.price }} &#8381;
+            </div>
+        {% endif %}
+    {% endif %}
+    {% if subcategory.subcategory == 'Автомобильный номер | тип 1' or subcategory.subcategory == 'Автомобильный номер | тип 1 (без флага)' %}
+        <p class="set text_grey py_10 font_thin">Комплект</p>
+        <select name="set" data-inlet="without"
+                onchange="changePriceData({{ subcategory.id }}, this, '{{ subcategory.subcategory }}', this.options[this.selectedIndex])"
+                class="select cursor_pointer">
+            <option selected value="0" data-inlet-img="{{ subcategory.images.2.image }}"
+                    data-set-img="{{ subcategory.images.0.image }}">1 шт
+            </option>
+            <option value="500" data-inlet-img="{{ subcategory.images.3.image }}"
+                    data-set-img="{{ subcategory.images.1.image }}">2 шт
+            </option>
+        </select>
+        <p class="inlet text_grey py_10 font_thin">Отверстия</p>
+        <select name="inlet" data-set="0"
+                onchange="changeImage({{ subcategory.id }}, this, '{{ subcategory.subcategory }}', this.options[this.selectedIndex])"
+                class="mb_20 select cursor_pointer">
+            <option selected value="without" data-inlet-img="{{ subcategory.images.2.image }}"
+                    data-set-img="{{ subcategory.images.0.image }}">Без отверстий
+            </option>
+            <option value="with" data-inlet-img="{{ subcategory.images.3.image }}"
+                    data-set-img="{{ subcategory.images.1.image }}">С отверстиями
+            </option>
+        </select>
+
+    {% elif subcategory.subcategory == 'Автомобильный номер | тип 1Б, 5, 10, 20' %}
+        <p class="set text_grey py_10 font_thin">Комплект</p>
+        <select name="set_type" data-color="желтый"
+                data-prod-id="{{ subcategory.id }}"
+                data-set-type="0" data-current-price="{{ subcategory.price }}"
+                data-name="{{ subcategory.subcategory }}"
+                onchange="changePriceDataType1B('{{ subcategory.id }}', this, '{{ subcategory.subcategory }}')"
+                class="select cursor_pointer"
+                data-yellow="{{ subcategory.images.1.image }}"
+                data-black="{{ subcategory.images.2.image }}"
+                data-red="{{ subcategory.images.3.image }}"
+                data-blue="{{ subcategory.images.4.image }}"
+        >
+            <option selected value="0">1 шт</option>
+            <option value="700">2 шт</option>
+        </select>
+        <p class="color text_grey py_10 font_thin">Цвет</p>
+        <div class="mb_20 choose-colors__items d-flex" id="colorImageRadio">
+            {% if subcategory.colors %}
+                {% for color in subcategory.colors %}
+                    <img data-tooltip="{{ color.name }}"
+                         class="color-radio elem__img_small cursor_pointer"
+                         src="{{ color.image }}" alt="">
+
+                {% endfor %}
+            {% endif %}
+        </div>
+    {% elif subcategory.subcategory == 'Силиконовая рамка RCS' %}
+        <p class="color text_grey py_10 font_thin">Цвет</p>
+        <div class="mb_20 choose-colors__items d-flex" id="colorRadio">
+            {% if subcategory.colors %}
+                {% for color in subcategory.colors %}
+                    <div data-tooltip="{{ color.name }}"
+                         onclick="chooseFrameColor({{ subcategory.id }},'{{ subcategory.images.0.image }}' , '{{ subcategory.subcategory }}', '{{ color.name }}', {{ subcategory.price }})"
+                         class="d-flex flex-align_center flex-justify_center color-radio elem__img_small cursor_pointer"
+                         style="background-color: {{ color.color }};border: 0.5px solid #333333; padding: 3px;
+                                 margin:0 3px">
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    {% elif subcategory.subcategory == 'Знаки опасности допог' %}
+        <p class="sign__type text_grey py_10 font_thin">Тип знака</p>
+        <div class="mb_20 choose-colors__items d-flex" id="signType">
+            {% if subcategory.sign_type %}
+                {% for sign in subcategory.sign_type %}
+                    <img data-tooltip="{{ sign.alt }}"
+                         onclick="getSignType({{ subcategory.id }},'{{ sign.image }}' , '{{ subcategory.subcategory }}', '{{ sign.alt }}', {{ subcategory.price }})"
+                         class="color-radio elem__img_small cursor_pointer"
+                         src="{{ sign.image }}" alt="" id="{{ sign.id }}">
+                {% endfor %}
+            {% endif %}
+        </div>
+    {% endif %}
+    <div>
+        {% if subcategory.subcategory == 'Автомобильный номер | тип 1' or subcategory.subcategory == 'Автомобильный номер | тип 1 (без флага)' %}
+            <button type="button" data-basket="{{ subcategory.id }}"
+                    onclick="getProdToBasketFromDetail({{ subcategory.id }}, '{{ subcategory.images.0.image }}', '{{ subcategory.subcategory }}', '1 шт', 'без отверстий', null, null, {{ subcategory.price }} )"
+                    class="order-number__button element__btn font-small mb_30 font_bold button_border bg_accent rounded_10 btn_medium">
+                Добавить в корзину
+            </button>
+        {% elif subcategory.subcategory == 'Автомобильный номер | тип 1Б, 5, 10, 20' %}
+            <button type="button" data-basket="{{ subcategory.id }}"
+                    onclick="getProdToBasketFromDetail({{ subcategory.id }}, '{{ subcategory.images.1.image }}', '{{ subcategory.subcategory }}', '1 шт', null , 'желтый', null, {{ subcategory.price }})"
+                    class="order-number__button element__btn font-small mb_30 font_bold button_border bg_accent rounded_10 btn_medium">
+                Добавить в корзину
+            </button>
+        {% elif subcategory.subcategory == 'Силиконовая рамка RCS' %}
+            <button type="button" data-basket="{{ subcategory.id }}"
+                    onclick="getProdToBasketFromDetail({{ subcategory.id }}, '{{ subcategory.images.0.image }}', '{{ subcategory.subcategory }}', null, null, 'черный', null, {{ subcategory.price }})"
+                    class="order-number__button element__btn font-small mb_30 font_bold button_border bg_accent rounded_10 btn_medium">
+                Добавить в корзину
+            </button>
+        {% elif subcategory.subcategory == 'Знаки опасности допог' %}
+            <button type="button" data-basket="{{ subcategory.id }}"
+                    onclick="getProdToBasketFromDetail({{ subcategory.id }},'{{ subcategory.images.1.image }}', '{{ subcategory.subcategory }}', null, null, null, 'Огнеопасно', {{ subcategory.price }})"
+                    class="order-number__button element__btn font-small mb_30 font_bold button_border bg_accent rounded_10 btn_medium">
+                Добавить в корзину
+            </button>
+        {% elif subcategory.subcategory == 'Болты' %}
+            <button type="button" data-basket="{{ subcategory.id }}"
+                    onclick="getProdToBasketFromDetail({{ subcategory.id }}, null, '{{ subcategory.subcategory }}', null, null, null, null, null)"
+                    class="order-number__button element__btn font-small mb_30 font_bold button_border bg_accent rounded_10 btn_medium">
+                Добавить в корзину
+            </button>
+        {% else %}
+            <button type="button" data-basket="{{ subcategory.id }}"
+                    onclick="getProdToBasketFromDetail({{ subcategory.id }}, '{{ subcategory.images.0.image }}', '{{ subcategory.subcategory }}', null, null, null, null, {{ subcategory.price }})"
+                    class="order-number__button element__btn font-small mb_30 font_bold button_border bg_accent rounded_10 btn_medium">
+                Добавить в корзину
+            </button>
+        {% endif %}
+    </div>
+    {% if subcategory.destiny %}
+        {% if subcategory.subcategory == 'Силиконовая рамка RCS' or subcategory.subcategory == 'Знаки опасности допог' %}
+            {% for destiny in subcategory.destiny %}
+                <p class="element-info__item font-small text_grey font_thin mb_20">{{ destiny }}</p>
+            {% endfor %}
+        {% elif subcategory.subcategory == 'Знаки ДОПОГ' %}
+            <p class="element-info__item font-small text_grey font_thin">{{ subcategory.text2 }}</p>
+        {% else %}
+            <p class="element-info__item font-small text_grey font_thin mb_20">{{ subcategory.destiny }}</p>
+        {% endif %}
+
+    {% endif %}
+
+    {% if subcategory.size %}
+        {% if subcategory.subcategory == 'Знаки ДОПОГ' %}
+            <p class="element-info__item font-small text_grey font_thin">
+                <b>Размер: {{ subcategory.size }}</b>
+            </p>
+        {% else %}
+            <p class="element-info__item font-small text_grey font_thin">
+                <b>Размер: </b>{{ subcategory.size }}
+            </p>
+        {% endif %}
+    {% endif %}
+
+    {% if subcategory.subcategory == 'Знаки ДОПОГ' %}
+        <p class="element-info__item font-small text_grey font_thin mb_20">{{ subcategory.destiny }}</p>
+    {% endif %}
+</div>
+
+

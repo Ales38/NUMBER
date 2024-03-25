@@ -1,0 +1,58 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'img/27_logo.ico' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'img/27_logo.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/common.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main_page.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modal_detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/basket.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/burger.css' %}">
+    <link rel="stylesheet" href="{% static 'css/property.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main_page_media.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/css/intlTelInput.css">
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.2.1/build/js/intlTelInput.min.js"></script>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/suggestions-jquery@21.12.0/dist/css/suggestions.min.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/suggestions-jquery@21.12.0/dist/js/jquery.suggestions.min.js"></script>
+    <title>ГОСНОМЕР27.РФ</title>
+</head>
+
+<body>
+<div class="progress"></div>
+{% include 'burger_menu.html' %}
+{% include 'basket.html' %}
+{% include 'modal_form.html' %}
+{% include 'modal_successful_order.html' %}
+{% include 'main-page-sections/header.html' %}
+{% include 'main-page-sections/intro_header.html' %}
+{% include 'main-page-sections/intro.html' %}
+{% include 'modal_video.html' %}
+{% include 'main-page-sections/running_text.html' %}
+{% include 'main-page-sections/catalogue.html' %}
+{% include 'main-page-sections/advantages.html' %}
+{% include 'main-page-sections/why.html' %}
+{% include 'main-page-sections/comments.html' %}
+{% include 'main-page-sections/contacts.html' %}
+{% include 'modal_properties.html' %}
+{% include 'main-page-sections/footer.html' %}
+{% include 'cookies.html' %}
+
+
+<script src="{% static 'js/data_output.js' %}"></script>
+<script src="{% static 'js/modal_element_detail.js' %}"></script>
+<script src="{% static 'js/zoom_images.js' %}"></script>
+<script src="{% static 'js/properties.js' %}"></script>
+<script src="{% static 'js/links_navigation.js' %}"></script>
+<script src="{% static 'js/form.js' %}"></script>
+<script src="{% static 'js/save_order.js' %}"></script>
+<script src="{% static 'js/location.js' %}"></script>
+<script src="{% static 'js/animation.js' %}"></script>
+
+</body>
+</html>

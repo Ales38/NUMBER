@@ -1,0 +1,106 @@
+{% load static %}
+<section class="why bg_white width_full section_padding-y section_padding-x" id="why">
+    <div class="why__container d-flex flex_column flex-align_center">
+        <div class="why__heading font_extra-large font_bold text_upper">Почему мы?</div>
+        <div class="why__items d-flex flex-align_center">
+            <div class="why__item side__items non-media-why">
+                <div class="side__item d-flex">
+                    <div class="side__info pr_20">
+                        <div class="side__heading font_m font_bold text-align_end">Обменяем</div>
+                        <div class="side__text font_thin text-align_end text_grey">Пришедший в негодность
+                            государственный номерной
+                            знак на новый
+                        </div>
+                    </div>
+                    <img src="{% static 'img/discount.png' %}" class="side__image" alt="">
+                </div>
+                <div class="side__item d-flex">
+                    <div class="side__info pr_20">
+                        <div class="side__heading font_m font_bold text-align_end">Восстановим</div>
+                        <div class="side__text font_thin text-align_end text_grey">Утерянный знак в течение
+                            5−10 минут без изменения
+                            серии, номера и кода
+                            региона
+                        </div>
+                    </div>
+                    <img src="{% static 'img/ny_card.png' %}" class="side__image" alt="">
+                </div>
+                <div class="side__item d-flex">
+                    <div class="side__info pr_20">
+                        <div class="side__heading font_m font_bold text-align_end">Подарим</div>
+                        <div class="side__text font_thin text-align_end text_grey">Система скидок позволяет
+                            получить некоторые продукты в подарок
+                        </div>
+                    </div>
+                    <img src="{% static 'img/4.png' %}" class="side__image" alt="">
+                </div>
+            </div>
+            <div class="why__item side__items media-why">
+                <div class="side__item d-flex">
+                    <img src="{% static 'img/discount.png' %}" class="side__image" alt="">
+                    <div class="side__info pl_20">
+                        <div class="side__heading font_m font_bold text-align_end">Обменяем</div>
+                        <div class="side__text font_thin text-align_end text_grey">Пришедший в негодность
+                            государственный номерной
+                            знак на новый
+                        </div>
+                    </div>
+                </div>
+                <div class="side__item d-flex">
+                    <img src="{% static 'img/ny_card.png' %}" class="side__image" alt="">
+                    <div class="side__info pl_20">
+                        <div class="side__heading font_m font_bold text-align_end">Восстановим</div>
+                        <div class="side__text font_thin text-align_end text_grey">Утерянный знак в течение
+                            5−10 минут без изменения
+                            серии, номера и кода
+                            региона
+                        </div>
+                    </div>
+                </div>
+                <div class="side__item d-flex">
+                    <img src="{% static 'img/4.png' %}" class="side__image" alt="">
+                    <div class="side__info pl_20">
+                        <div class="side__heading font_m font_bold text-align_end">Подарим</div>
+                        <div class="side__text font_thin text-align_end text_grey">Система скидок позволяет
+                            получить некоторые продукты в подарок
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img src="{% static 'img/car_white.png' %}" alt="" class="why__item why__image">
+            <div class="why__item side__items">
+                <div class="side__item d-flex">
+                    <img class="side__image" src="{% static 'img/1.png' %}" alt="">
+                    <div class="side__info pl_20">
+                        <div class="side__heading font_m font_bold">Покажем</div>
+                        <div class="side__text font_thin text_grey">Большой выбор рамок
+                            и креплений для номеров
+                        </div>
+                    </div>
+                </div>
+                <div class="side__item d-flex">
+                    <img class="side__image" src="{% static 'img/payment.png' %}" alt="">
+                    <div class="side__info pl_20">
+                        <div class="side__heading font_m font_bold">Сэкономим</div>
+                        <div class="side__text font_thin text_grey">Стоимость комплекта от 2 000₽
+                        </div>
+                    </div>
+                </div>
+                <div class="side__item d-flex">
+                    <img class="side__image" src="{% static 'img/clock3.png' %}" alt="">
+                    <div class="side__info pl_20">
+                        <div class="side__heading font_m font_bold">Не задержим</div>
+                        <div class="side__text font_thin text_grey">Пластины изготавливаются
+                            в течение 5−10 минут
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" onclick="buttonNavigation('catalogue')"
+                class="order-number__button bg_accent rounded_10 text_upper button_border font_bold font-small btn_large">
+            заказать
+            номер
+        </button>
+    </div>
+</section>

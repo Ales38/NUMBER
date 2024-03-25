@@ -1,0 +1,57 @@
+{% load static %}
+<div class="modal modal-form block_hidden pl_20 pr_20 py_20 d-flex flex_column flex-align_center width_full"
+     id="modalForm">
+    <div class="d-flex flex_column flex-align_center" style="position: relative">
+        <div class="close_form mb_30 d-flex width_full py_20 flex-justify_end" onclick="closeForm()">
+            <svg class="close-window__icon" xmlns="http://www.w3.org/2000/svg" width="24" height="23"
+                 viewBox="0 0 24 23"
+                 fill="none">
+                <path d="M22.4572 3.48732C22.6495 3.30177 22.8029 3.07979 22.9085 2.83433C23.0141 2.58886 23.0697 2.32482 23.0722 2.05763C23.0746 1.79043 23.0238 1.52542 22.9227 1.27806C22.8217 1.0307 22.6724 0.805945 22.4835 0.61691C22.2947 0.427876 22.07 0.278346 21.8228 0.177046C21.5755 0.0757455 21.3105 0.0247046 21.0433 0.0268997C20.7761 0.0290947 20.5121 0.0844823 20.2665 0.189831C20.0209 0.29518 19.7988 0.44838 19.6131 0.640491L11.5475 8.70337L3.48463 0.640491C3.3004 0.442778 3.07824 0.284198 2.83139 0.17421C2.58454 0.0642227 2.31807 0.00508056 2.04787 0.000313177C1.77766 -0.00445421 1.50927 0.0452509 1.2587 0.146462C1.00812 0.247674 0.7805 0.398318 0.589409 0.589409C0.398318 0.7805 0.247674 1.00812 0.146462 1.2587C0.0452509 1.50927 -0.00445421 1.77767 0.000313177 2.04787C0.00508056 2.31807 0.0642227 2.58454 0.17421 2.83139C0.284198 3.07824 0.442778 3.30041 0.640491 3.48464L8.698 11.5502L0.635126 19.6131C0.279661 19.9946 0.086143 20.4991 0.0953414 21.0205C0.10454 21.5418 0.315737 22.0392 0.684437 22.4079C1.05314 22.7766 1.55055 22.9878 2.07189 22.997C2.59323 23.0062 3.09779 22.8127 3.47927 22.4572L11.5475 14.3943L19.6104 22.4599C19.9919 22.8154 20.4964 23.0089 21.0178 22.9997C21.5391 22.9905 22.0365 22.7793 22.4052 22.4106C22.7739 22.0419 22.9851 21.5445 22.9943 21.0231C23.0035 20.5018 22.81 19.9972 22.4545 19.6158L14.397 11.5502L22.4572 3.48732Z"
+                      fill="white"></path>
+            </svg>
+        </div>
+        <div class="form__container width_full d-flex flex-justify_center flex-align_center">
+            <div class="form__items form bg_white d-flex flex_column">
+                <div class="form__heading font_l mb_40">Ваш заказ</div>
+                <div class="prod__items mb_20 py_20 width_full d-flex flex_column" id="prodItems"></div>
+                <div class="form__total-sum py_20 width_full font_bold d-flex flex-justify_end">
+                    Сумма: <span class="font_bold" data-sum="formSum"></span> &#8381;
+                </div>
+                <form class="width_full d-flex flex_column" id="form">
+                    <div class="buyer__info width_full d-flex mb_40 flex_column">
+                        {% include 'form_sections/name_input_section.html' %}
+
+                        {% include 'form_sections/email_input_section.html' %}
+
+                        {% include 'form_sections/phone_input_section.html' %}
+
+                        <input type="text" name="number" class="form__input width_full pl_10 py_20 text_grey mb_40"
+                               placeholder="Введите ваш номер согласно типу госномера" id="number"
+                               style="margin-top: 10px">
+
+                        <div class="form__heading font_l mb_40">Доставка</div>
+
+                        {% include 'form_sections/city_input_section.html' %}
+
+                        {% include 'form_sections/delivery_section.html' %}
+
+                        {% include 'form_sections/address_input_section.html' %}
+
+                        {% include 'form_sections/total_info_section.html' %}
+
+                        {% include 'form_sections/errors_section.html' %}
+
+                        <button type="submit" id="buy" class="order-number cursor_pointer width_full bg_accent rounded_10 button_border font_bold font-small">
+                            Оформить заказ
+                        </button>
+                        <div class="form__policy width_full font_thin text_grey">Отправляя запрос, Вы подтверждаете, что
+                            ознакомились с Политикой в отношении обработки персональных данных
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</div>

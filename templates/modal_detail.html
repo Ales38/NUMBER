@@ -1,0 +1,35 @@
+{% load static %}
+{% if all_categories %}
+    {% for category in all_categories %}
+        {% for subcategory in category.subcategories %}
+            <div class="modal__detail d-flex flex-justify_center width_full block_hidden" id="{{ subcategory.id }}">
+                <div class="modal-detail__container d-flex flex_column width_full flex-align_center"
+                     style="position: relative">
+                    <div class="close-btn__container width_full close__modal d-flex flex-justify_end pr_20 pl_20 py_10 cursor_pointer"
+                         onclick="closeModal({{ subcategory.id }})">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="close-modal__icon" width="41" height="40"
+                             viewBox="0 0 41 40" fill="none">
+                            <path d="M39.056 6.0649C39.3904 5.74221 39.6572 5.35616 39.8409 4.92926C40.0245 4.50236 40.1212 4.04317 40.1255 3.57848C40.1297 3.11379 40.0414 2.6529 39.8656 2.22271C39.6899 1.79252 39.4302 1.40164 39.1018 1.07289C38.7733 0.744131 38.3827 0.48408 37.9527 0.307905C37.5226 0.131731 37.0618 0.0429646 36.5971 0.0467821C36.1324 0.0505996 35.6731 0.146926 35.2461 0.330141C34.819 0.513356 34.4327 0.77979 34.1097 1.1139L20.0826 15.1363L6.06023 1.1139C5.73983 0.770049 5.35346 0.494258 4.92416 0.302975C4.49485 0.111692 4.03142 0.00883576 3.56151 0.000544656C3.09159 -0.00774645 2.62482 0.0786972 2.18904 0.254717C1.75326 0.430737 1.35739 0.692727 1.02506 1.02506C0.692727 1.35739 0.430737 1.75325 0.254717 2.18904C0.0786972 2.62482 -0.00774645 3.09159 0.000544656 3.56151C0.00883576 4.03142 0.111692 4.49485 0.302975 4.92415C0.494258 5.35346 0.770049 5.73983 1.1139 6.06024L15.127 20.0873L1.10457 34.1097C0.486367 34.7731 0.149814 35.6506 0.165811 36.5573C0.181808 37.464 0.549108 38.3291 1.19033 38.9703C1.83154 39.6115 2.69661 39.9788 3.60329 39.9948C4.50997 40.0108 5.38746 39.6742 6.0509 39.056L20.0826 25.0336L34.105 39.0607C34.7685 39.6789 35.646 40.0155 36.5526 39.9995C37.4593 39.9835 38.3244 39.6162 38.9656 38.9749C39.6068 38.3337 39.9741 37.4686 39.9901 36.562C40.0061 35.6553 39.6696 34.7778 39.0514 34.1144L25.0383 20.0873L39.056 6.0649Z"
+                                  fill="#FFCC00"></path>
+                        </svg>
+                        <svg class="close__cross" width="26px" height="26px"
+                             viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                             xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path d="M10.4142136,5 L11.8284271,6.41421356 L5.829,12.414 L23.4142136,12.4142136 L23.4142136,14.4142136 L5.829,14.414 L11.8284271,20.4142136 L10.4142136,21.8284271 L2,13.4142136 L10.4142136,5 Z"
+                                  fill="#ffcc00"></path>
+                        </svg>
+                    </div>
+                    <div class="detail_container width_full bg_white d-flex flex_column">
+                        <div class="element-info__container d-flex flex-justify_space-btw">
+                            {% include 'element_images_block.html' %}
+                            {% include 'element_info_detail.html' %}
+                        </div>
+                        {% include 'look_also_block.html' %}
+                    </div>
+                </div>
+
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+

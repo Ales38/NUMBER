@@ -1,0 +1,98 @@
+{% load static %}
+<section class="catalogue width_full section_padding-y section_padding-x d-flex flex-justify_center"
+         id="catalogue">
+    <div class="catalogue__container width_full ">
+        <div class="catalogue-inlays__items d-flex flex-justify_center mb_40">
+            <div class="catalogue-inlays__item active_inline cursor_pointer pr_15 mb_10" data-container="all">Все</div>
+            <div class="catalogue-inlays__item pr_15 pl_15 cursor_pointer mb_10" data-container="numbers">Номера</div>
+            <div class="catalogue-inlays__item pr_15 pl_15 cursor_pointer mb_10" data-container="frames">Рамки</div>
+            <div class="catalogue-inlays__item pr_15 pl_15 cursor_pointer mb_10" data-container="accessories">
+                Аксессуары
+            </div>
+            <div class="catalogue-inlays__item cursor_pointer pl_15 mb_10" data-container="signs">Знаки</div>
+        </div>
+        <div class="catalogue__items width_full">
+            <div class="catalogue__item flex_wrap width_full d-flex" id="all">
+                {% if all_categories %}
+                    {% for cat in all_categories %}
+                        {% for subcategory in cat.subcategories %}
+                            <div class="element cursor_pointer ml_20 mr_20 mb_20 d-flex flex_column cursor_pointer"
+                                 id="{{ subcategory.subcategory }}" data-modal="{{ subcategory.id }}">
+                                <div onclick="openModal({{ subcategory.id }})">
+                                    <div class="element_images">
+                                        {% if subcategory.images %}
+                                            <img src="{{ subcategory.images.0.image }}" alt=""
+                                                 class="element__img rounded_10 first_img width_full mb_20">
+                                            <img src="{{ subcategory.images.1.image }}" alt=""
+                                                 class="element__img rounded_10 second_img width_full mb_20 block_hidden">
+                                        {% endif %}
+                                    </div>
+
+                                    <div class="element__heading font_xs font_bold mb_10">{{ subcategory.subcategory }}
+                                    </div>
+                                    {% if subcategory.text %}
+                                        <p class="element__text font_thin mb_20 text_grey">{{ subcategory.text }}</p>
+                                    {% endif %}
+                                    {% if subcategory.price %}
+                                        <p class="element__price font-small mb_20"> {{ subcategory.price }}
+                                            &#8381;</p>
+                                    {% endif %}
+                                </div>
+
+
+                                <div class="buttons_container d-flex">
+                                    <button type="button" data-modal="{{ subcategory.id }}"
+                                            onclick="openModal({{ subcategory.id }})"
+                                            class="element__btn font-smaller mr_5 font_bold button_border bg_accent rounded_10 btn_extra-small">
+                                        Подробнее
+                                    </button>
+                                    {% if subcategory.subcategory == 'Автомобильный номер | тип 1' or subcategory.subcategory == 'Автомобильный номер | тип 1 (без флага)' %}
+                                        <button type="button"
+                                                onclick="getProdToBasket({{ subcategory.id }}, '{{ subcategory.images.0.image }}', '{{ subcategory.subcategory }}', '1 шт', 'без отверстий', null, null, {{ subcategory.price }})"
+                                                class="element__btn font-smaller mr_5 text_black font_bold button_border bg_accent rounded_10 btn_extra-small">
+                                            В корзину
+                                        </button>
+                                    {% elif subcategory.subcategory == 'Автомобильный номер | тип 1Б, 5, 10, 20' %}
+                                        <button type="button"
+                                                onclick="getProdToBasket({{ subcategory.id }}, '{{ subcategory.images.1.image }}', '{{ subcategory.subcategory }}','1 шт', null, 'желтый', null, {{ subcategory.price }})"
+                                                class="element__btn font-smaller mr_5 text_black font_bold button_border bg_accent rounded_10 btn_extra-small">
+                                            В корзину
+                                        </button>
+                                    {% elif subcategory.subcategory == 'Силиконовая рамка RCS' %}
+                                        <button type="button"
+                                                onclick="getProdToBasket({{ subcategory.id }}, '{{ subcategory.images.0.image }}', '{{ subcategory.subcategory }}', null, null, 'черный', null, {{ subcategory.price }})"
+                                                class="element__btn font-smaller mr_5 text_black font_bold button_border bg_accent rounded_10 btn_extra-small">
+                                            В корзину
+                                        </button>
+                                    {% elif subcategory.subcategory == 'Знаки опасности допог' %}
+                                        <button type="button"
+                                                onclick="getProdToBasket({{ subcategory.id }}, '{{ subcategory.images.1.image }}', '{{ subcategory.subcategory }}', null, null, null, 'Огнеопасно', {{ subcategory.price }})"
+                                                class="element__btn font-smaller mr_5 text_black font_bold button_border bg_accent rounded_10 btn_extra-small">
+                                            В корзину
+                                        </button>
+                                    {% elif subcategory.subcategory == 'Болты' %}
+                                        <button type="button"
+                                                onclick="getProdToBasket({{ subcategory.id }}, null, '{{ subcategory.subcategory }}', null, null, null, null, null)"
+                                                class="element__btn font-smaller mr_5 text_black font_bold button_border bg_accent rounded_10 btn_extra-small">
+                                            В корзину
+                                        </button>
+                                    {% else %}
+                                        <button type="button"
+                                                onclick="getProdToBasket({{ subcategory.id }}, '{{ subcategory.images.0.image }}', '{{ subcategory.subcategory }}', null, null, null, null, {{ subcategory.price }})"
+                                                class="element__btn font-smaller mr_5 text_black font_bold button_border bg_accent rounded_10 btn_extra-small">
+                                            В корзину
+                                        </button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="catalogue__item flex_wrap width_full d-flex block_hidden" id="numbers"></div>
+            <div class="catalogue__item flex_wrap width_full d-flex block_hidden" id="frames"></div>
+            <div class="catalogue__item flex_wrap width_full d-flex block_hidden" id="accessories"></div>
+            <div class="catalogue__item flex_wrap width_full d-flex block_hidden" id="signs"></div>
+        </div>
+    </div>
+</section>

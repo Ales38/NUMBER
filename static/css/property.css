@@ -1,0 +1,25 @@
+.properties__container{
+    position: absolute;
+}
+
+.properties__container {
+    padding: 40px 45px;
+    width: 35%;
+    height: fit-content;
+    margin: 0 auto;
+    left: 30%;
+    bottom: 300px;
+}
+
+.properties__heading {
+    font-size: 32px;
+}
+
+.properties__description > a
+.properties__description > p {
+    line-height: 1.55;
+}
+
+.properties__link {
+    border-bottom: 1px solid var(--text-color-grey);
+}

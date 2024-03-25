@@ -1,0 +1,44 @@
+{% load static %}
+<section class="intro bg_white width_full section_padding-x section_padding-y d-flex flex-justify_center">
+    <div class="intro__container width_full d-flex flex-align_center flex-justify_space-btw" style="position: relative">
+        <div class="main__info d-flex flex_column">
+            <h1 class="main__title title font_xxxl mb_20" style="line-height: 48px;">ДУБЛИКАТЫ НОМЕРОВ <br> В ХАБАРОВСКЕ
+                <br><span
+                        class="accent_color">ЗА 5 МИНУТ</span></h1>
+            <h2 class="subtitle mb_10 font_l" style="line-height: 26px;">Доставим по Дальнему Востоку и в ближайшие
+                регионы России</h2>
+            <div class="intro__main__items d-flex flex_column">
+                <div class="actions__items d-flex flex-align_center">
+                    <button type="button" onclick="buttonNavigation('catalogue')"
+                            class="order-number__button  bg_accent rounded_10 text_upper button_border font_bold font-small btn_medium">
+                        Заказать номер
+                    </button>
+                    <div class="guide__items d-flex flex-align_center">
+                        <div class="guide__button cursor_pointer">
+                            <img src="{% static 'img/play.png' %}" alt="" id="openVideo">
+                        </div>
+                        <div class="guide__text text_grey ">Как мы создаем <br> дубликаты номеров?</div>
+                    </div>
+                </div>
+                <div class="info__items d-flex flex-align_center">
+                    <div class="info__item d-flex mr_30">
+                        <img src="{% static 'img/1_yellow.png' %}" alt="" class="info__icon mr_10">
+                        <div class="info__icon mr_10"></div>
+                        <div class="info__text text_grey">Официальные номера и металла</div>
+                    </div>
+                    <div class="info__item d-flex">
+                        <img src="{% static 'img/clock_yellow.png' %}" alt="" class="info__icon mr_10">
+                        <div class="info__icon mr_10"></div>
+                        <div class="info__text text_grey">Бесплатная доставка в течение часа</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="car__img">
+            <div class="car width_full" style="background-image: url('{% static 'img/car_yellow.png' %}')">
+                <img src="{% static 'img/number_pulse.png' %}" alt="" width="100%" class="number__img">
+            </div>
+        </div>
+
+    </div>
+</section>
